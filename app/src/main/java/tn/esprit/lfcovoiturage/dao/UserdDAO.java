@@ -21,6 +21,9 @@ public interface UserdDAO {
     @Query("select * from User where username=(:username) and password=(:password)")
     User login(String username , String password );
 
+    @Query("select * from User where email=(:email) or username=(:username)")
+    User register(String username , String email );
+
     
 
 

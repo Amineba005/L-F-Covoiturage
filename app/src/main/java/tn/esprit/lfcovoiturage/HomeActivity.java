@@ -14,6 +14,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
+
         username = findViewById(R.id.usernameH);
         String userN = getIntent().getStringExtra("username");
         username.setText(userN);

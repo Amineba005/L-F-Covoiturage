@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         setContentView(R.layout.activity_main);
+
         usernameEt = findViewById(R.id.usernameEt);
         passEt = findViewById(R.id.passEt);
         signInBtn = findViewById(R.id.signinBtn);
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     MyDatabase myDatabase = MyDatabase.getDatabase(getApplicationContext());
-                    final UserdDAO userDAO = myDatabase.userdDAO();
+                    UserdDAO userDAO = myDatabase.userdDAO();
                     new Thread(new Runnable() {
                         @Override
                         public void run() {

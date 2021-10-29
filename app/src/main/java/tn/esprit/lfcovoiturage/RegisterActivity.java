@@ -47,33 +47,56 @@ public class RegisterActivity extends AppCompatActivity {
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                final String username = usernameEt.getText().toString();
+                final String email = emailEt.getText().toString();
                 User user = new User();
                 user.setUsername(usernameEt.getText().toString());
                 user.setEmail(emailEt.getText().toString());
                 user.setPassword(passwordEt.getText().toString());
                 if (!passwordEt.getText().toString().equals(passwordEt2.getText().toString()))
                     Toast.makeText(getApplicationContext(),"password not match", Toast.LENGTH_SHORT).show();
-
+                else if ((emailEt.getText().toString().length()>0) & emailValidator((emailEt))){
+                    Toast.makeText(getApplicationContext(),"Invalid email",Toast.LENGTH_SHORT).show();
+                }
                 else if (validateInput(user)){
-                        MyDatabase myDatabase = MyDatabase.getDatabase(getApplicationContext());
-                        UserdDAO userDao = myDatabase.userdDAO();
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                userDao.insertUser(user);
+                    MyDatabase myDatabase = MyDatabase.getDatabase(getApplicationContext());
+                    UserdDAO userDAO = myDatabase.userdDAO();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            User user = userDAO.register(username,email);
+                            if (user == null) {
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        userDAO.insertUser(user);
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(getApplicationContext(),"User Registered",Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+
+                                            }
+
+                                        });
+
+                                    }
+                                }).start();
+                            } else {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(getApplicationContext(),"User Registered",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+                                        Toast.makeText(getApplicationContext(),"Username/Email exist",Toast.LENGTH_SHORT).show();
+
 
                                     }
 
                                 });
-
                             }
-                        }).start();
+                        }
+
+                    }).start();
                 }else
                         Toast.makeText(getApplicationContext(),"Fill all fields ", Toast.LENGTH_SHORT).show();
             }
