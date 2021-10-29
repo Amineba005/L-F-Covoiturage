@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">L&amp;F Covoiturage</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Sign in</string>
+    <string name="hello">Hello</string>
+    <string name="username">Username</string>
+
+</resources>
