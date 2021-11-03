@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13680555555555557" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/ic_add.xml" value="0.1360824742268041" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/ic_home.xml" value="0.13680555555555557" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13680555555555557" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/ic_person.xml" value="0.13680555555555557" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/ic_search.xml" value="0.146875" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/ic_settings.xml" value="0.13680555555555557" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/shape_left_panel.xml" value="0.1360824742268041" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/shape_login_button.xml" value="0.146875" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/shape_login_panel.xml" value="0.14536082474226805" />
@@ -12,6 +17,10 @@
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_home.xml" value="0.16" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_register.xml" value="0.18" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/fragment_covoiturage.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/fragment_lost_found.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1267361111111111" />
       </map>
     </option>

@@ -1,13 +1,18 @@
 package tn.esprit.lfcovoiturage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 public class HomeActivity extends AppCompatActivity {
 
     TextView username ;
+    MeowBottomNavigation bottomNavigation ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,9 +20,59 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-
-        username = findViewById(R.id.usernameH);
+        bottomNavigation = findViewById(R.id.buttom_navigation);
+        /*username = findViewById(R.id.usernameH);
         String userN = getIntent().getStringExtra("username");
-        username.setText(userN);
+        username.setText(userN);*/
+
+        //Add menu items
+        bottomNavigation.add( new MeowBottomNavigation.Model(1,R.drawable.ic_home));
+        bottomNavigation.add( new MeowBottomNavigation.Model(2,R.drawable.ic_search));
+        bottomNavigation.add( new MeowBottomNavigation.Model(3,R.drawable.ic_person));
+        bottomNavigation.add( new MeowBottomNavigation.Model(4,R.drawable.ic_settings));
+
+        bottomNavigation.setOnShowListener(new MeowBottomNavigation.ShowListener() {
+            @Override
+            public void onShowItem(MeowBottomNavigation.Model item) {
+                Fragment fragment = null ;
+                switch (item.getId()){
+                    case 1:
+                        fragment = new LostFoundFragment();
+                        break;
+                    case 2:
+                        fragment = new CovoiturageFragment();
+                        break;
+                    case 3:
+                        fragment = new ProfileFragment();
+                        break;
+                    case 4:
+                        fragment = new SettingsFragment();
+                        break;
+                }
+                loadFragment(fragment);
+            }
+        });
+
+        bottomNavigation.show(1,true);
+        //bottomNavigation.setCount(2,"10");
+        bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
+            @Override
+            public void onClickItem(MeowBottomNavigation.Model item) {
+                //Toast.makeText(getApplicationContext(),"you clicked"+item.getId(),Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
+            @Override
+            public void onReselectItem(MeowBottomNavigation.Model item) {
+                //Toast.makeText(getApplicationContext(),"You reselected"+item.getId(),Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void loadFragment(Fragment fragment) {
+        //Replace fragment
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();
+
     }
 }

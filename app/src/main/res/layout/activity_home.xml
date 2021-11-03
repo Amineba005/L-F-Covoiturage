@@ -1,66 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".HomeActivity">
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
+
+
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        android:id="@+id/buttom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:fabCradleMargin="20dp"
-        app:fabCradleVerticalOffset="10dp"
-        app:fabCradleRoundedCornerRadius="20dp"
-        android:layout_gravity="bottom">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="16dp"
-            app:menu="@menu/bottom_nav_menu"
-            android:background="@android:color/transparent"
-            android:layout_marginRight="16dp" />
-
-    </com.google.android.material.bottomappbar.BottomAppBar>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
-        app:layout_anchor="@id/bottomAppBar"/>
-
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_margin="20dp"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal" />
-
-    <TextView
-        android:id="@+id/usernameH"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_margin="20dp"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal" />
+        app:mbn_circleColor="@color/white"
+        app:mbn_selectedIconColor="#3c415e"
+        app:mbn_countTextColor="@color/white"
+        app:mbn_countBackgroundColor="#ff6ff0"
+        app:mbn_defaultIconColor="@color/white"
+        app:mbn_backgroundBottomColor="#3c415e"/>
 
 </LinearLayout>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
