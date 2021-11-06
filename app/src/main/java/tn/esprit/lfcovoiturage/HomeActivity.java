@@ -3,6 +3,7 @@ package tn.esprit.lfcovoiturage;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,13 +22,13 @@ public class HomeActivity extends AppCompatActivity {
 
 
         bottomNavigation = findViewById(R.id.buttom_navigation);
-        /*username = findViewById(R.id.usernameH);
+        /*username = findViewById(R.id.usernameTv);
         String userN = getIntent().getStringExtra("username");
         username.setText(userN);*/
 
         //Add menu items
-        bottomNavigation.add( new MeowBottomNavigation.Model(1,R.drawable.ic_home));
-        bottomNavigation.add( new MeowBottomNavigation.Model(2,R.drawable.ic_search));
+        bottomNavigation.add( new MeowBottomNavigation.Model(1,R.drawable.ic_search));
+        bottomNavigation.add( new MeowBottomNavigation.Model(2,R.drawable.ic_car));
         bottomNavigation.add( new MeowBottomNavigation.Model(3,R.drawable.ic_person));
         bottomNavigation.add( new MeowBottomNavigation.Model(4,R.drawable.ic_settings));
 
@@ -49,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
                         fragment = new SettingsFragment();
                         break;
                 }
+
                 loadFragment(fragment);
             }
         });

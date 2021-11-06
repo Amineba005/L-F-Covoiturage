@@ -1,17 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CovoiturageFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CovoiturageFragment"
+    tools:ignore="HardcodedText">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- parent FAB-->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_fab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+
+        android:text="Add"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="20dp"
+        app:icon="@drawable/ic_add"/>
+
+    <!-- FAB for add covoiturage-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_fab_cov"
+        app:layout_constraintBottom_toBottomOf="@id/add_fab"
+        app:layout_constraintEnd_toEndOf="@id/add_fab"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="20dp"
+        android:text="Add"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/ic_car"
+        app:fabSize="normal"/>
+
+    <!-- text for FAB for add covoiturage-->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Covoiturage fragment"
-        android:gravity="center"
-        android:textSize="40dp"
-        android:textStyle="bold"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_cov_Tv"
+        android:text="Add covoiturage"
+        app:layout_constraintBottom_toBottomOf="@id/add_fab_cov"
+        app:layout_constraintEnd_toStartOf="@id/add_fab_cov"
+        app:layout_constraintTop_toTopOf="@id/add_fab_cov"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
+        android:layout_marginRight="8dp" />
 
-</FrameLayout>
+    <!-- FAB for add L&F-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_fab_LF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="64dp"
+        android:gravity="center_horizontal"
+        android:src="@drawable/ic_search"
+        android:text="Add"
+        android:textAlignment="center"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="@id/add_fab_cov"
+        app:layout_constraintEnd_toEndOf="@id/add_fab_cov"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/add_fab_cov" />
+
+    <!-- text for FAB for add L&F-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_lf_Tv"
+        android:text="Add L/F object"
+        app:layout_constraintBottom_toBottomOf="@id/add_fab_LF"
+        app:layout_constraintEnd_toStartOf="@id/add_fab_LF"
+        app:layout_constraintTop_toTopOf="@id/add_fab_LF"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/TitreCTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liste covoiturage"
+        android:layout_marginTop="20dp"
+        android:textColor="#009688"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LFCovoiturage">
         <activity
+            android:name=".AddLf"
+            android:exported="true" />
+        <activity
+            android:name=".AddCovoiturage"
+            android:exported="true" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true" />
         <activity

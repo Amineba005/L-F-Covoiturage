@@ -1,12 +1,21 @@
 package tn.esprit.lfcovoiturage;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +55,11 @@ public class CovoiturageFragment extends Fragment {
         return fragment;
     }
 
+    FloatingActionButton addCovFab , addLfFab ;
+    ExtendedFloatingActionButton addActionFav ;
+    TextView addCovTv , addLfTv ;
+    Boolean isAllFabVisible ;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +73,66 @@ public class CovoiturageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_covoiturage, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        addCovFab = view.findViewById(R.id.add_fab_cov);
+        addLfFab = view.findViewById(R.id.add_fab_LF);
+        addActionFav = view.findViewById(R.id.add_fab);
+        addCovTv =view.findViewById(R.id.add_cov_Tv);
+        addLfTv = view.findViewById(R.id.add_lf_Tv);
+
+        addCovFab.setVisibility(View.GONE);
+        addLfFab.setVisibility(View.GONE);
+        addCovTv.setVisibility(View.GONE);
+        addLfTv.setVisibility(View.GONE);
+
+        isAllFabVisible = false ;
+
+        addActionFav.shrink();
+
+        addActionFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isAllFabVisible){
+                    addCovFab.show();
+                    addLfFab.show();
+                    addCovTv.setVisibility(view.VISIBLE);
+                    addLfTv.setVisibility(view.VISIBLE);
+
+                    addActionFav.extend();
+                    isAllFabVisible= true ;
+                }else{
+                    addCovFab.hide();
+                    addLfFab.hide();
+                    addCovTv.setVisibility(View.GONE);
+                    addLfTv.setVisibility(View.GONE);
+
+                    addActionFav.shrink();
+                    isAllFabVisible = false;
+                }
+            }
+        });
+
+        addCovFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),AddCovoiturage.class));
+
+
+            }
+        });
+
+        addLfFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),AddLf.class));
+            }
+        });
     }
 }
