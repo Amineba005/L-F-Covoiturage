@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor ;
     Button signInBtn ;
+    TextView forgtPw ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("my_pref",MODE_PRIVATE);
         editor = sharedPreferences.edit();
+
+        forgtPw = findViewById(R.id.ForgetPw);
+
+        forgtPw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,HomeActivity.class));
+            }
+        });
 
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
                             } else {
+                                user.setConnected(true);
                                     String userName = user.getUsername();
                                     startActivity(new Intent(MainActivity.this,HomeActivity.class)
                                     .putExtra("username",userName));

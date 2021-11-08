@@ -52,6 +52,7 @@
             android:layout_height="60dp"/>
 
         <TextView
+            android:id="@+id/ForgetPw"
             android:layout_marginTop="15dp"
             android:gravity="right"
             android:layout_width="match_parent"

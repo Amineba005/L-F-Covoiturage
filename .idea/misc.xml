@@ -14,7 +14,9 @@
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/shape_login_button.xml" value="0.146875" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/shape_login_panel.xml" value="0.14536082474226805" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/drawable/shape_right_panel.xml" value="0.14536082474226805" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_add_covoiturage.xml" value="0.11133879781420765" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_add_covoiturage.xml" value="0.21" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_add_lf.xml" value="0.1051912568306011" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_add_lost_found.xml" value="0.1051912568306011" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_home.xml" value="0.16" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/activity_register.xml" value="0.18" />
@@ -22,6 +24,7 @@
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/fragment_lost_found.xml" value="0.1" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/layout/popupcov.xml" value="0.1051912568306011" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/LFCovoiturage/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1267361111111111" />
       </map>
     </option>

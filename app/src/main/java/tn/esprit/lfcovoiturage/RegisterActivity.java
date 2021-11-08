@@ -47,12 +47,11 @@ public class RegisterActivity extends AppCompatActivity {
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String username = usernameEt.getText().toString();
-                final String email = emailEt.getText().toString();
                 User user = new User();
                 user.setUsername(usernameEt.getText().toString());
                 user.setEmail(emailEt.getText().toString());
                 user.setPassword(passwordEt.getText().toString());
+                user.setConnected(false);
                 if (!passwordEt.getText().toString().equals(passwordEt2.getText().toString()))
                     Toast.makeText(getApplicationContext(),"password not match", Toast.LENGTH_SHORT).show();
                 else if ((emailEt.getText().toString().length()>0) & emailValidator((emailEt))){
@@ -64,8 +63,8 @@ public class RegisterActivity extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            User user = userDAO.register(username,email);
-                            if (user == null) {
+                            User user1 = userDAO.register(user.getUsername(),user.getEmail());
+                            if (user1 == null) {
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LFCovoiturage">
         <activity
-            android:name=".AddLf"
+            android:name=".AddLostFound"
             android:exported="true" />
         <activity
             android:name=".AddCovoiturage"

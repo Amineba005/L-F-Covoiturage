@@ -14,11 +14,22 @@ public class User {
     private String email ;
     @ColumnInfo
     private String password ;
+    @ColumnInfo
+    private Boolean connected ;
 
-    public User(String username, String email, String password) {
+    public Boolean getConnected() {
+        return connected;
+    }
+
+    public void setConnected(Boolean connected) {
+        this.connected = connected;
+    }
+
+    public User(String username, String email, String password, Boolean connected) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.connected = connected;
     }
 
     public User() {
@@ -64,6 +75,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", connected=" + connected +
                 '}';
     }
 }

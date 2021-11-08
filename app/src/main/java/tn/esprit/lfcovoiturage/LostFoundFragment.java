@@ -2,11 +2,20 @@ package tn.esprit.lfcovoiturage;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import tn.esprit.lfcovoiturage.dao.CovoiturageDAO;
+import tn.esprit.lfcovoiturage.dao.UserdDAO;
+import tn.esprit.lfcovoiturage.database.MyDatabase;
+import tn.esprit.lfcovoiturage.entities.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +69,11 @@ public class LostFoundFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lost_found, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 }

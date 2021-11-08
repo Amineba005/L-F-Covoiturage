@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCovoiturage">
-
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/AjoutCTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Add Covoiturage"
+        android:text="Crer"
         android:textColor="#009688"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -27,24 +26,23 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="40dp"
-        android:hint="Départ"
+        android:hint="Titre"
         android:minHeight="48dp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AjoutCTv" />
 
-    <EditText
+    <TextView
         android:id="@+id/DestEt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="30dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="40dp"
-        android:hint="Déstination"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:hint="Type objet"
         android:minHeight="48dp"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DepartEt" />
 
@@ -56,15 +54,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
-        android:hint="Date"
-        android:inputType="date"
+        android:hint="Description"
+        android:inputType="textMultiLine"
         android:minHeight="48dp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DestEt" />
-
-
 
     <EditText
         android:id="@+id/PrixEt"
@@ -74,7 +70,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
         android:ems="15"
-        android:hint="Prix"
+        android:hint="Lieu"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
         android:textSize="14sp"
@@ -82,7 +78,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DateDep" />
 
-
+    <EditText
+        android:id="@+id/TelEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:ems="15"
+        android:hint="Tel"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PrixEt" />
 
     <EditText
         android:id="@+id/NbrPlEt"
@@ -93,12 +103,11 @@
         android:layout_marginEnd="40dp"
         android:ems="15"
         android:hint="Nombre de places"
-        android:inputType="number"
         android:minHeight="48dp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PrixEt" />
+        app:layout_constraintTop_toBottomOf="@+id/TelEt" />
 
 
 
@@ -112,6 +121,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NbrPlEt" />
+
+    <Spinner
+        android:id="@+id/TypeObjSpinner"
+        android:layout_width="247dp"
+        android:layout_height="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="0dp"
+
+        app:layout_constraintStart_toEndOf="@+id/DestEt"
+        app:layout_constraintTop_toBottomOf="@+id/DepartEt"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="0dp" />
+
 
 
 

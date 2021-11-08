@@ -1,5 +1,7 @@
 package tn.esprit.lfcovoiturage;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -7,9 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,12 +22,21 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import tn.esprit.lfcovoiturage.database.MyDatabase;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CovoiturageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class CovoiturageFragment extends Fragment {
+
+
+    FloatingActionButton addCovFab , addLfFab ;
+    ExtendedFloatingActionButton addActionFav ;
+    TextView addCovTv , addLfTv ;
+    Boolean isAllFabVisible ;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,10 +69,7 @@ public class CovoiturageFragment extends Fragment {
         return fragment;
     }
 
-    FloatingActionButton addCovFab , addLfFab ;
-    ExtendedFloatingActionButton addActionFav ;
-    TextView addCovTv , addLfTv ;
-    Boolean isAllFabVisible ;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,6 +91,8 @@ public class CovoiturageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
 
         addCovFab = view.findViewById(R.id.add_fab_cov);
         addLfFab = view.findViewById(R.id.add_fab_LF);
@@ -131,8 +144,10 @@ public class CovoiturageFragment extends Fragment {
         addLfFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),AddLf.class));
+                startActivity(new Intent(getActivity(),AddLostFound.class));
             }
         });
     }
+
+
 }
