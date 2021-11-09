@@ -93,11 +93,6 @@ public class CovoiturageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        MyDatabase mydb = Room.databaseBuilder(getContext(),MyDatabase.class,"cov")
-                .allowMainThreadQueries().build();
-
-
-
 
         return inflater.inflate(R.layout.fragment_covoiturage, container, false);
     }

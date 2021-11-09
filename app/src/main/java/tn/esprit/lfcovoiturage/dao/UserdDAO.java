@@ -29,6 +29,9 @@ public interface UserdDAO {
     @Query("select User.phone from User where id=(:idUser)")
     public String getPhoneByIdUser(int idUser);
 
+    @Query("select * from User where id=(:idUser)")
+    public User getUserById(int idUser);
+
     @Transaction
     @Query("SELECT * FROM User")
     public List<UserWithCov> getUsersWithCov();

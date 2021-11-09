@@ -93,6 +93,7 @@
         android:layout_marginEnd="40dp"
         android:ems="15"
         android:hint="Nombre de places"
+        android:maxLength="1"
         android:inputType="number"
         android:minHeight="48dp"
         android:textSize="14sp"

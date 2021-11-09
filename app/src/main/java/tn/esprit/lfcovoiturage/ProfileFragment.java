@@ -1,12 +1,23 @@
 package tn.esprit.lfcovoiturage;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import tn.esprit.lfcovoiturage.database.MyDatabase;
+import tn.esprit.lfcovoiturage.entities.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +25,11 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
+    private SharedPreferences mPreferences;
+    public static final String sharedPrefFile = "tn.esprit.lfcovoiturage";
+    EditText userEt ,emailUEt , phoneEt,editPTv , editPTv2 ;
+    TextView usernameTv , logoutTv,editP,changeP,saveU,saveP ;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,5 +76,69 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        userEt = view.findViewById(R.id.userEt);
+        emailUEt = view.findViewById(R.id.emailUEt);
+        phoneEt = view.findViewById(R.id.phoneEt);
+        editPTv = view.findViewById(R.id.editPTv);
+        editPTv2 = view.findViewById(R.id.editPTv2) ;
+        usernameTv = view.findViewById(R.id.usernameTv);
+        logoutTv = view.findViewById(R.id.logoutTv);
+        editP = view.findViewById(R.id.editP);
+        changeP = view.findViewById(R.id.changeP) ;
+        saveU = view.findViewById(R.id.saveU);
+        saveP = view.findViewById(R.id.saveP);
+
+        editPTv.setVisibility(View.GONE);
+        editPTv2.setVisibility(View.GONE);
+        saveU.setVisibility(View.GONE);
+        saveP.setVisibility(View.GONE);
+        userEt.setEnabled(false);
+        emailUEt.setEnabled(false);
+        phoneEt.setEnabled(false);
+        MyDatabase myDB = Room.databaseBuilder(getContext(),MyDatabase.class,"my_db")
+                .allowMainThreadQueries().build();
+        mPreferences = getActivity().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE);
+        final int idUser = mPreferences.getInt("idUser",0);
+        User user = myDB.userdDAO().getUserById(idUser);
+        usernameTv.setText(user.getUsername());
+        userEt.setText(user.getUsername());
+        emailUEt.setText(user.getEmail());
+        phoneEt.setText(user.getPhone());
+
+        editP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveU.setVisibility(View.VISIBLE);
+                userEt.setEnabled(true);
+                emailUEt.setEnabled(true);
+                phoneEt.setEnabled(true);
+                saveP.setVisibility(View.GONE);
+                editPTv.setVisibility(View.GONE);
+                editPTv2.setVisibility(View.GONE);
+            }
+        });
+
+        changeP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editPTv.setVisibility(View.VISIBLE);
+                editPTv2.setVisibility(View.VISIBLE);
+                saveP.setVisibility(View.VISIBLE);
+                saveU.setVisibility(View.GONE);
+                userEt.setEnabled(false);
+                emailUEt.setEnabled(false);
+                phoneEt.setEnabled(false);
+
+            }
+        });
+
+
+
+
     }
 }

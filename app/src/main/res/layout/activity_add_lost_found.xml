@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/AjoutCTv"
+        android:id="@+id/AjoutLfTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/DepartEt"
+        android:id="@+id/titreLfEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -31,23 +31,12 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AjoutCTv" />
+        app:layout_constraintTop_toBottomOf="@+id/AjoutLfTv" />
 
-    <TextView
-        android:id="@+id/DestEt"
-        android:layout_width="85dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="12dp"
-        android:hint="Type objet"
-        android:minHeight="48dp"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DepartEt" />
+
 
     <EditText
-        android:id="@+id/DateDep"
+        android:id="@+id/descLfEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -60,10 +49,10 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DestEt" />
+        app:layout_constraintTop_toBottomOf="@+id/titreLfEt" />
 
     <EditText
-        android:id="@+id/PrixEt"
+        android:id="@+id/lieuLfEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -76,67 +65,46 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DateDep" />
+        app:layout_constraintTop_toBottomOf="@+id/descLfEt" />
 
-    <EditText
-        android:id="@+id/TelEt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:ems="15"
-        android:hint="Tel"
-        android:inputType="phone"
-        android:minHeight="48dp"
-        android:textSize="14sp"
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="317dp"
+        android:layout_height="268dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/AjoutLfBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PrixEt" />
-
-    <EditText
-        android:id="@+id/NbrPlEt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:ems="15"
-        android:hint="Nombre de places"
-        android:minHeight="48dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TelEt" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/lieuLfEt"
+        app:layout_constraintVertical_bias="1.0"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/AjoutCoBtn"
+        android:id="@+id/AjoutLfBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="436dp"
         android:text="Ajouter"
         app:backgroundTint="#3F51B5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NbrPlEt" />
+        app:layout_constraintTop_toBottomOf="@+id/lieuLfEt" />
 
-    <Spinner
-        android:id="@+id/TypeObjSpinner"
-        android:layout_width="247dp"
-        android:layout_height="34dp"
+    <Button
+        android:id="@+id/buttonLoad"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/color_button"
+        android:text="Choisissez une photo"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="0dp"
-
-        app:layout_constraintStart_toEndOf="@+id/DestEt"
-        app:layout_constraintTop_toBottomOf="@+id/DepartEt"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="0dp" />
-
-
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lieuLfEt"
+        app:layout_constraintVertical_bias="0.034" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
