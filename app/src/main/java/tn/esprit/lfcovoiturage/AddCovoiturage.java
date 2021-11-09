@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -25,16 +28,20 @@ import tn.esprit.lfcovoiturage.entities.Covoiturage;
 import tn.esprit.lfcovoiturage.entities.User;
 
 public class AddCovoiturage extends AppCompatActivity {
-
-    EditText departET , destEt , dateEt , prixEt , nbr_pEt,timeEt ;
+    private SharedPreferences mPreferences;
+    public static final String sharedPrefFile = "tn.esprit.lfcovoiturage";
+    EditText departET , destEt , dateEt , prixEt , nbr_pEt ;
     Button ajout_C ;
     MyDatabase myDb ;
+
     DatePickerDialog picker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_covoiturage);
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+
 
         departET = findViewById(R.id.DepartEt);
         destEt = findViewById(R.id.DestEt);
@@ -76,6 +83,7 @@ public class AddCovoiturage extends AppCompatActivity {
                 final String date = dateEt.getText().toString();
                 final String prix = prixEt.getText().toString();
                 final String nbrP = nbr_pEt.getText().toString();
+                final int idUser = mPreferences.getInt("idUser",0);
 
                 Covoiturage covoiturage = new Covoiturage();
                 covoiturage.setDep(depart);
@@ -83,6 +91,7 @@ public class AddCovoiturage extends AppCompatActivity {
                 covoiturage.setDate(date);
                 covoiturage.setPrice(prix);
                 covoiturage.setNbrP(nbrP);
+                covoiturage.setIdUser(idUser);
 
                  if(validateInput(covoiturage)){
                     MyDatabase myDatabase = MyDatabase.getDatabase(getApplicationContext());
@@ -96,6 +105,7 @@ public class AddCovoiturage extends AppCompatActivity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
+                                    Log.d("TAG","idUser: "+idUser);
                                     Toast.makeText(getApplicationContext(),"cov Registered",Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(AddCovoiturage.this,HomeActivity.class));
 

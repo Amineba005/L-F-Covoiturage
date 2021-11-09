@@ -18,16 +18,27 @@ public class Covoiturage {
     private String date ;
     @ColumnInfo
     private String nbrP ;
+    @ColumnInfo
+    private int idUser ;
 
     public Covoiturage() {
     }
 
-    public Covoiturage(String dep, String dest, String price, String date, String nbrP) {
+    public Covoiturage(String dep, String dest, String price, String date, String nbrP, int idUser ) {
         this.dep = dep;
         this.dest = dest;
         this.price = price;
         this.date = date;
         this.nbrP = nbrP;
+        this.idUser = idUser;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public int getIdC() {
@@ -87,6 +98,7 @@ public class Covoiturage {
                 ", price='" + price + '\'' +
                 ", date='" + date + '\'' +
                 ", nbrP='" + nbrP + '\'' +
+                ", idUser=" + idUser +
                 '}';
     }
 }

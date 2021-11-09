@@ -25,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText emailEt ;
     EditText passwordEt ;
     EditText passwordEt2 ;
+    EditText telEt ;
     Button signUpBtn ;
     MyDatabase myDb ;
 
@@ -40,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         emailEt = findViewById(R.id.emailET);
         passwordEt = findViewById(R.id.passwordEt);
         passwordEt2 = findViewById(R.id.passwordEt2);
+        telEt =findViewById(R.id.telET);
         signUpBtn = findViewById(R.id.signUpBtn);
 
         myDb = MyDatabase.getDatabase(this);
@@ -51,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
                 user.setUsername(usernameEt.getText().toString());
                 user.setEmail(emailEt.getText().toString());
                 user.setPassword(passwordEt.getText().toString());
+                user.setPhone(telEt.getText().toString());
                 user.setConnected(false);
                 if (!passwordEt.getText().toString().equals(passwordEt2.getText().toString()))
                     Toast.makeText(getApplicationContext(),"password not match", Toast.LENGTH_SHORT).show();
@@ -117,7 +120,8 @@ public class RegisterActivity extends AppCompatActivity {
     private Boolean validateInput(User user){
         if(user.getEmail().isEmpty()||
         user.getUsername().isEmpty()||
-        user.getPassword().isEmpty()){
+        user.getPassword().isEmpty()||
+        user.getPhone().isEmpty()){
             return false ;
 
         };

@@ -11,7 +11,7 @@ import tn.esprit.lfcovoiturage.dao.UserdDAO;
 import tn.esprit.lfcovoiturage.entities.Covoiturage;
 import tn.esprit.lfcovoiturage.entities.User;
 
-@Database(entities = {User.class, Covoiturage.class},version = 2,exportSchema = false)
+@Database(entities = {User.class, Covoiturage.class},version = 7,exportSchema = false)
 public abstract class MyDatabase extends RoomDatabase {
 
     private static MyDatabase instance ;

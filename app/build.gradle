@@ -38,6 +38,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'androidx.room:room-runtime:2.3.0'
     annotationProcessor 'androidx.room:room-compiler:2.3.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
     //Material Design Dependency:
 
     implementation 'com.etebarian:meow-bottom-navigation-java:1.2.0'

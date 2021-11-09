@@ -15,7 +15,17 @@ public class User {
     @ColumnInfo
     private String password ;
     @ColumnInfo
+    private String phone ;
+    @ColumnInfo
     private Boolean connected ;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public Boolean getConnected() {
         return connected;
@@ -25,10 +35,11 @@ public class User {
         this.connected = connected;
     }
 
-    public User(String username, String email, String password, Boolean connected) {
+    public User(String username, String email, String password, String phone, Boolean connected) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.phone = phone;
         this.connected = connected;
     }
 
@@ -75,6 +86,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
                 ", connected=" + connected +
                 '}';
     }

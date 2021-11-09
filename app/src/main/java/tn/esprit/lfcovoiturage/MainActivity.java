@@ -19,8 +19,8 @@ import tn.esprit.lfcovoiturage.entities.User;
 public class MainActivity extends AppCompatActivity {
     EditText usernameEt ;
     EditText passEt ;
-    SharedPreferences sharedPreferences ;
-    SharedPreferences.Editor editor ;
+    private SharedPreferences mPreferences;
+    public static final String sharedPrefFile = "tn.esprit.lfcovoiturage";
     Button signInBtn ;
     TextView forgtPw ;
 
@@ -38,18 +38,18 @@ public class MainActivity extends AppCompatActivity {
         passEt = findViewById(R.id.passEt);
         signInBtn = findViewById(R.id.signinBtn);
 
-        sharedPreferences = getSharedPreferences("my_pref",MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
 
         forgtPw = findViewById(R.id.ForgetPw);
 
         forgtPw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                startActivity(new Intent(MainActivity.this,AddCovoiturage.class));
             }
         });
-
+        usernameEt.setText("amine");
+        passEt.setText("azerty");
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,10 +73,14 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
                             } else {
+                                SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+                                preferencesEditor.putString("login", usernameEt.getText().toString());
+                                preferencesEditor.putString("password", passEt.getText().toString());
+                                preferencesEditor.putInt("idUser", user.getId());
+                                preferencesEditor.apply();
                                 user.setConnected(true);
-                                    String userName = user.getUsername();
-                                    startActivity(new Intent(MainActivity.this,HomeActivity.class)
-                                    .putExtra("username",userName));
+
+                                    startActivity(new Intent(MainActivity.this,HomeActivity.class));
                                 }
                             }
 

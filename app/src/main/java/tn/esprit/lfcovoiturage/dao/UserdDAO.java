@@ -4,10 +4,12 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 import java.util.List;
 
 import tn.esprit.lfcovoiturage.entities.User;
+import tn.esprit.lfcovoiturage.entities.UserWithCov;
 
 @Dao
 public interface UserdDAO {
@@ -23,6 +25,13 @@ public interface UserdDAO {
 
     @Query("select * from User where email=(:email) or username=(:username)")
     User register(String username , String email );
+
+    @Query("select User.phone from User where id=(:idUser)")
+    public String getPhoneByIdUser(int idUser);
+
+    @Transaction
+    @Query("SELECT * FROM User")
+    public List<UserWithCov> getUsersWithCov();
 
     
 

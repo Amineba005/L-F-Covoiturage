@@ -8,8 +8,12 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +26,12 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import tn.esprit.lfcovoiturage.dao.CovoiturageDAO;
 import tn.esprit.lfcovoiturage.database.MyDatabase;
+import tn.esprit.lfcovoiturage.entities.Covoiturage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,14 +39,14 @@ import tn.esprit.lfcovoiturage.database.MyDatabase;
  * create an instance of this fragment.
  */
 public class CovoiturageFragment extends Fragment {
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter ;
 
 
     FloatingActionButton addCovFab , addLfFab ;
     ExtendedFloatingActionButton addActionFav ;
     TextView addCovTv , addLfTv ;
     Boolean isAllFabVisible ;
-
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -78,12 +87,17 @@ public class CovoiturageFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        MyDatabase mydb = Room.databaseBuilder(getContext(),MyDatabase.class,"cov")
+                .allowMainThreadQueries().build();
+
+
+
 
         return inflater.inflate(R.layout.fragment_covoiturage, container, false);
     }
@@ -91,6 +105,21 @@ public class CovoiturageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        MyDatabase myDB = Room.databaseBuilder(getContext(),MyDatabase.class,"my_db")
+                .allowMainThreadQueries().build();
+        List<Covoiturage> covoiturages = myDB.covoiturageDAO().getAllCov();
+        Log.d("tag","cov"+covoiturages);
+        recyclerView = view.findViewById(R.id.recycler_view);
+        RecyclerViewCov adapter = new RecyclerViewCov(getContext(),covoiturages);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+
+
 
 
 
@@ -112,6 +141,17 @@ public class CovoiturageFragment extends Fragment {
         addActionFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MyDatabase myDatabase = MyDatabase.getDatabase(getContext());
+                CovoiturageDAO covDAO = myDatabase.covoiturageDAO();
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+
+                        Log.d("TAG","covoiturage"+covDAO.getAllCov());
+
+                    }});
                 if(!isAllFabVisible){
                     addCovFab.show();
                     addLfFab.show();
@@ -132,6 +172,8 @@ public class CovoiturageFragment extends Fragment {
             }
         });
 
+
+
         addCovFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,6 +189,9 @@ public class CovoiturageFragment extends Fragment {
                 startActivity(new Intent(getActivity(),AddLostFound.class));
             }
         });
+
+
+
     }
 
 

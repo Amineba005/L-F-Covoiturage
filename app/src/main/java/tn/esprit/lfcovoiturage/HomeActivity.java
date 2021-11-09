@@ -12,7 +12,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 public class HomeActivity extends AppCompatActivity {
 
-    TextView username ;
+    
     MeowBottomNavigation bottomNavigation ;
 
     @Override
@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.buttom_navigation);
         /*username = findViewById(R.id.usernameTv);
         String userN = getIntent().getStringExtra("username");
+
         username.setText(userN);*/
 
         //Add menu items
