@@ -128,14 +128,14 @@ public class ForgottenPassword extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ForgottenPassword.this);
                 builder.setCancelable(false);
                 builder.setTitle(Html.fromHtml("<font color='#509324'>Success</font>"));
-                builder.setMessage("Mail send successfully");
+                builder.setMessage("Mail send successfully !");
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         emailTo.setText("");
                     }
                 });
-                //Show alert dialog
+                //Show alert dialog0
                 builder.show();
             }else {
                 //When error

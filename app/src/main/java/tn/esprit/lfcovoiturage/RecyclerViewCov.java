@@ -48,6 +48,7 @@ public class RecyclerViewCov extends RecyclerView.Adapter<RecyclerViewCov.MyView
         holder.destC.setText(covoiturages.get(position).getDest());
         holder.dateC.setText(covoiturages.get(position).getDate());
         holder.prixC.setText(covoiturages.get(position).getPrice());
+        holder.nbrP.setText(covoiturages.get(position).getNbrP());
 
 
         MyDatabase myDB = Room.databaseBuilder(context,MyDatabase.class,"my_db")
@@ -70,9 +71,10 @@ public class RecyclerViewCov extends RecyclerView.Adapter<RecyclerViewCov.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView depC , destC , dateC , prixC , phone ;
+        TextView depC , destC , dateC , prixC , phone,nbrP ;
         public MyViewHolder( View itemView) {
             super(itemView);
+            nbrP = itemView.findViewById(R.id.nbrP);
             depC = itemView.findViewById(R.id.depTv);
             destC = itemView.findViewById(R.id.destCov);
             dateC = itemView.findViewById(R.id.dateTv);

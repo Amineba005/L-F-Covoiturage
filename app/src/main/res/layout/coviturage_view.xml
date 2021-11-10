@@ -155,12 +155,36 @@
                 android:id="@+id/dt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dt"
+                android:layout_marginLeft="2dp"
+                android:text="Dt /"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                android:layout_marginLeft="2dp"
                 app:layout_constraintStart_toEndOf="@+id/coinTv"
                 app:layout_constraintTop_toTopOf="@+id/coinTv" />
+
+            <TextView
+                android:id="@+id/nbrP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N"
+                android:textColor="@color/white"
+                android:layout_marginLeft="2dp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/dt"
+                app:layout_constraintTop_toTopOf="@+id/dt" />
+
+            <TextView
+                android:id="@+id/plc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="P"
+                android:textColor="@color/white"
+                android:layout_marginLeft="3dp"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="344dp"
+                tools:layout_editor_absoluteY="39dp"
+                app:layout_constraintStart_toEndOf="@+id/nbrP"
+                app:layout_constraintTop_toTopOf="@+id/nbrP" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
