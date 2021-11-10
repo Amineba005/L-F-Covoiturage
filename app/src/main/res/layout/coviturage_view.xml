@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
-                android:text="vers"
+                android:text="To"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@+id/destCov"
                 app:layout_constraintStart_toEndOf="@+id/circleImageView"
@@ -110,7 +110,7 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toEndOf="@+id/circleImageView"
                 app:layout_constraintTop_toBottomOf="@+id/coinimg"
-                app:srcCompat="@drawable/ic_phonee" />
+                android:src="@drawable/ic_phonee" />
 
             <TextView
                 android:id="@+id/dateTv"

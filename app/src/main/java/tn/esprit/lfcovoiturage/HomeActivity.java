@@ -31,7 +31,6 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigation.add( new MeowBottomNavigation.Model(1,R.drawable.ic_search));
         bottomNavigation.add( new MeowBottomNavigation.Model(2,R.drawable.ic_car));
         bottomNavigation.add( new MeowBottomNavigation.Model(3,R.drawable.ic_person));
-        bottomNavigation.add( new MeowBottomNavigation.Model(4,R.drawable.ic_settings));
 
         bottomNavigation.setOnShowListener(new MeowBottomNavigation.ShowListener() {
             @Override
@@ -47,16 +46,14 @@ public class HomeActivity extends AppCompatActivity {
                     case 3:
                         fragment = new ProfileFragment();
                         break;
-                    case 4:
-                        fragment = new SettingsFragment();
-                        break;
+
                 }
 
                 loadFragment(fragment);
             }
         });
 
-        bottomNavigation.show(1,true);
+        bottomNavigation.show(2 ,true);
         //bottomNavigation.setCount(2,"10");
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
             @Override

@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         forgtPw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,AddCovoiturage.class));
+                startActivity(new Intent(MainActivity.this,ForgottenPassword.class));
             }
         });
         signInBtn.setOnClickListener(new View.OnClickListener() {

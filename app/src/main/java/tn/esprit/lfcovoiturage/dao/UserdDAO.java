@@ -38,6 +38,10 @@ public interface UserdDAO {
     @Query("UPDATE User set password=(:password)where id=(:iduser)")
     public int updatePasswordUser (String password , int iduser);
 
+    @Query("select User.password from User where email=(:email)")
+    public String getPasswordByEmail(String email);
+
+
     @Transaction
     @Query("SELECT * FROM User")
     public List<UserWithCov> getUsersWithCov();

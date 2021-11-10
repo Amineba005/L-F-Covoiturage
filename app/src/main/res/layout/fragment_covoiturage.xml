@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="20dp"
-        android:backgroundTint="#3c415e"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Add"
         android:textAlignment="center"
         android:gravity="center_horizontal"
@@ -34,7 +34,7 @@
         android:layout_marginBottom="60dp"
         android:layout_marginEnd="20dp"
         android:text="Add"
-        android:backgroundTint="#3c415e"
+        android:backgroundTint="@color/colorPrimary"
 
         android:textAlignment="center"
         android:gravity="center_horizontal"
@@ -67,7 +67,7 @@
         android:src="@drawable/ic_search"
         android:text="Add"
 
-        android:backgroundTint="#3c415e"
+        android:backgroundTint="@color/colorPrimary"
         android:textAlignment="center"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="@id/add_fab_cov"
