@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,AddCovoiturage.class));
             }
         });
-        usernameEt.setText("amine");
-        passEt.setText("azerty");
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

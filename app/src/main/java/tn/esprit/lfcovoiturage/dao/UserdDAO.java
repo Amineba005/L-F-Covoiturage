@@ -32,6 +32,12 @@ public interface UserdDAO {
     @Query("select * from User where id=(:idUser)")
     public User getUserById(int idUser);
 
+    @Query("UPDATE User set username=(:username),email=(:email),phone=(:phone)where id=(:iduser)")
+    public int updateUser (String username , String email , String phone , int iduser);
+
+    @Query("UPDATE User set password=(:password)where id=(:iduser)")
+    public int updatePasswordUser (String password , int iduser);
+
     @Transaction
     @Query("SELECT * FROM User")
     public List<UserWithCov> getUsersWithCov();

@@ -1,6 +1,9 @@
 package tn.esprit.lfcovoiturage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -107,7 +110,9 @@ public class AddCovoiturage extends AppCompatActivity {
                                 public void run() {
                                     Log.d("TAG","idUser: "+idUser);
                                     Toast.makeText(getApplicationContext(),"cov Registered",Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(AddCovoiturage.this,HomeActivity.class));
+                                   startActivity(new Intent(AddCovoiturage.this,HomeActivity.class));
+
+
 
                                 }
 

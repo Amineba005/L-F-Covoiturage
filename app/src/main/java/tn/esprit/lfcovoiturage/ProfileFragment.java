@@ -1,6 +1,7 @@
 package tn.esprit.lfcovoiturage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import tn.esprit.lfcovoiturage.database.MyDatabase;
 import tn.esprit.lfcovoiturage.entities.User;
@@ -28,7 +30,7 @@ public class ProfileFragment extends Fragment {
     private SharedPreferences mPreferences;
     public static final String sharedPrefFile = "tn.esprit.lfcovoiturage";
     EditText userEt ,emailUEt , phoneEt,editPTv , editPTv2 ;
-    TextView usernameTv , logoutTv,editP,changeP,saveU,saveP ;
+    TextView usernameTv , logoutTv,editP,changeP,saveU,saveP,cancel ;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -92,11 +94,13 @@ public class ProfileFragment extends Fragment {
         changeP = view.findViewById(R.id.changeP) ;
         saveU = view.findViewById(R.id.saveU);
         saveP = view.findViewById(R.id.saveP);
+        cancel = view.findViewById(R.id.cancel);
 
         editPTv.setVisibility(View.GONE);
         editPTv2.setVisibility(View.GONE);
         saveU.setVisibility(View.GONE);
         saveP.setVisibility(View.GONE);
+        cancel.setVisibility(View.GONE);
         userEt.setEnabled(false);
         emailUEt.setEnabled(false);
         phoneEt.setEnabled(false);
@@ -120,6 +124,23 @@ public class ProfileFragment extends Fragment {
                 saveP.setVisibility(View.GONE);
                 editPTv.setVisibility(View.GONE);
                 editPTv2.setVisibility(View.GONE);
+                cancel.setVisibility(View.VISIBLE);
+
+                saveU.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                         int userUp = myDB.userdDAO().updateUser(userEt.getText().toString(),emailUEt.getText().toString()
+                                ,phoneEt.getText().toString(),idUser);
+                        userEt.setEnabled(false);
+                        emailUEt.setEnabled(false);
+                        phoneEt.setEnabled(false);
+                        saveU.setVisibility(View.GONE);
+                        user.setConnected(false);
+                        cancel.setVisibility(View.GONE);
+                        Toast.makeText(getContext(),"“Your account details have been saved.”",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
         });
 
@@ -133,6 +154,46 @@ public class ProfileFragment extends Fragment {
                 userEt.setEnabled(false);
                 emailUEt.setEnabled(false);
                 phoneEt.setEnabled(false);
+                cancel.setVisibility(View.VISIBLE);
+
+                saveP.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!editPTv.getText().toString().equals(editPTv2.getText().toString()))
+                            Toast.makeText(getContext(),"passwords not match", Toast.LENGTH_SHORT).show();
+                        else{
+                            int passUp = myDB.userdDAO().updatePasswordUser(editPTv.getText().toString(),user.getId());
+                            Toast.makeText(getContext(),"password changed with success", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userEt.setEnabled(false);
+                emailUEt.setEnabled(false);
+                phoneEt.setEnabled(false);
+                saveU.setVisibility(View.GONE);
+                saveP.setVisibility(View.GONE);
+                editPTv.setVisibility(View.GONE);
+                editPTv2.setVisibility(View.GONE);
+                cancel.setVisibility(View.GONE);
+            }
+        });
+
+        logoutTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+                preferencesEditor.clear();
+                preferencesEditor.apply();
+                startActivity(new Intent(getActivity(),MainActivity.class));
 
             }
         });
